@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Nav, Icon, IconButton, Badge, Whisper, Popover } from "rsuite";
+import { Navbar, Nav, Icon, IconButton, Badge, Whisper, Popover , List , FlexboxGrid } from "rsuite";
+import { Button } from "../components/UI Components/Button";
 // ====================================================
 export default function DefaultNavbar(props) {
   const { handleExpand } = props;
@@ -28,6 +29,43 @@ export default function DefaultNavbar(props) {
               eventKey="1"
               icon={<Icon icon="user-circle-o" size="lg" />}
             ></Nav.Item>
+            <Whisper
+              trigger="click"
+              preventOverflow
+              placement="bottomEnd"
+              speaker={
+                <Popover title="THÔNG BÁO">
+                  <div className="notification-container ">
+                    <div className="notification-body scrollable">
+                      <List hover autoScroll>
+                        {/* {notiList.map((item, id) => (
+                          <List.Item key={id}>
+                            <FlexboxGrid justify="space-between" align="middle">
+                              <FlexboxGrid.Item colspan={22}>
+                                {item.title}
+                              </FlexboxGrid.Item>
+                              <FlexboxGrid.Item colspan={2}>
+                                {item.status === "new" && (
+                                  <Badge className="bg-green" />
+                                )}
+                              </FlexboxGrid.Item>
+                            </FlexboxGrid>
+                          </List.Item>
+                        ))} */}
+                      </List>
+                    </div>
+                    <div className="notification-footer">
+                      <Button
+                        block
+                        mainColor="blue"
+                      >
+                        Xem toàn bộ thông báo
+                      </Button>
+                    </div>
+                  </div>
+                </Popover>
+              }
+            >
             <Nav.Item
               eventKey="2"
               icon={
@@ -36,6 +74,7 @@ export default function DefaultNavbar(props) {
                 </Badge>
               }
             ></Nav.Item>
+            </Whisper>
             <Nav.Item icon={<Icon icon="th2" size="lg" />}></Nav.Item>
           </Nav>
         </Navbar.Body>

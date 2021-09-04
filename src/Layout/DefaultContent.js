@@ -1,7 +1,15 @@
 import React from "react";
-import { Navbar, Grid, Row, Col } from "rsuite";
-import { StatisticalCard , Panel } from "../components/UI Components";
-import { Line, Doughnut } from "react-chartjs-2";
+import { Grid, Row, Col } from "rsuite";
+import {
+  StatisticalCard,
+  Panel,
+  PageNameNav,
+  Table,
+  HeaderCell,
+} from "../components/UI Components";
+import { Line, Bar } from "react-chartjs-2";
+const { Cell, Column } = Table;
+// ==========================================
 export default function DefaultContent(props) {
   const { children } = props;
   const data = {
@@ -29,41 +37,39 @@ export default function DefaultContent(props) {
     },
   };
   const data2 = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
+    labels: ["T2", "T3", "T4", "T5", "T6"],
     datasets: [
       {
         label: "# of Votes",
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
+          "#4e73df",
+          "#4e73df",
+          "#4e73df",
+          "#4e73df",
+          "#4e73df",
         ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-        ],
+        borderColor: ["#4e73df", "#4e73df", "#4e73df", "#4e73df", "#4e73df"],
         borderWidth: 1,
-        borderAlign: "inner",
       },
     ],
   };
+
+  const options2 = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  };
+
   return (
     <div>
-      <div className="page-name-nav">
-        <Navbar appearance="default">
-          <Navbar.Header>
-            <div className="page-name-container">
-              <h6>TRANG CHỦ</h6>
-            </div>
-          </Navbar.Header>
-        </Navbar>
-      </div>
+      <PageNameNav title="Trang chủ"></PageNameNav>
       <div className="main-content">
         <Grid fluid>
           <Row>
@@ -106,14 +112,38 @@ export default function DefaultContent(props) {
           </Row>
           <div style={{ marginTop: 15 }}>
             <Row>
-              <Col lg={14}>
-                <Panel header="Thu nhập tháng trước" shaded>
+              <Col lg={12}>
+                <Panel header="Thu nhập trong quý" shaded>
                   <Line data={data} options={options} />
                 </Panel>
               </Col>
-              <Col lg={10}>
+              <Col lg={12}>
                 <Panel header="Biểu đồ tồn kho" shaded>
-                  <Doughnut data={data2} />
+                  <Bar data={data2} options={options2} />
+                </Panel>
+              </Col>
+            </Row>
+          </div>
+          <div style={{ marginTop: 15 }}>
+            <Row>
+              <Col lg={14}>
+                <Panel header="Danh sách nhân viên" shaded>
+                  <Table data={[]}>
+                    <Column width={250} align="center" verticalAlign="middle">
+                      <HeaderCell>Họ và tên</HeaderCell>
+                      <Cell></Cell>
+                    </Column>
+                  </Table>
+                </Panel>
+              </Col>
+              <Col lg={10}>
+                <Panel header="Dự án đang triển khai" shaded>
+                  <Table data={[]}>
+                    <Column width={250} align="center" verticalAlign="middle">
+                      <HeaderCell>Tên dự án</HeaderCell>
+                      <Cell></Cell>
+                    </Column>
+                  </Table>
                 </Panel>
               </Col>
             </Row>
