@@ -1,6 +1,6 @@
 import React from "react";
-import { Sidenav, Nav, Dropdown, Icon , Divider } from "rsuite";
-
+import { Sidenav, Nav, Dropdown, Icon, Divider } from "rsuite";
+import { Link } from "react-router-dom";
 export default function DefaultSidebar(props) {
   const { expand } = props;
   return (
@@ -12,26 +12,54 @@ export default function DefaultSidebar(props) {
     >
       <Sidenav.Body>
         <Nav>
-          <Nav.Item eventKey="1" icon={<Icon icon="dashboard" />}>
+          <Nav.Item
+            eventKey="home"
+            componentClass={Link}
+            to="/home"
+            icon={<Icon icon="dashboard" />}
+          >
             TRANG CHỦ
           </Nav.Item>
-          <Nav.Item eventKey="2" icon={<Icon icon="group" />}>
+          <Nav.Item
+            eventKey="2"
+            componentClass={Link}
+            to="/"
+            icon={<Icon icon="group" />}
+          >
             User Group
           </Nav.Item>
-          <Nav.Item eventKey="2" icon={<Icon icon="group" />}>
+          <Nav.Item
+            eventKey="3"
+            componentClass={Link}
+            to="/"
+            icon={<Icon icon="group" />}
+          >
             User Group
           </Nav.Item>
-          <Nav.Item eventKey="2" icon={<Icon icon="group" />}>
+          <Nav.Item
+            eventKey="2"
+            componentClass={Link}
+            to="/home"
+            icon={<Icon icon="group" />}
+          >
             User Group
           </Nav.Item>
           <Nav.Item eventKey="2" icon={<Icon icon="group" />}>
             User Group
           </Nav.Item>
           <Dropdown eventKey="3" title="Advanced" icon={<Icon icon="magic" />}>
-            <Dropdown.Item eventKey="3-1" icon={<Divider vertical />}>Geo</Dropdown.Item>
-            <Dropdown.Item eventKey="3-2" icon={<Divider vertical />}>Devices</Dropdown.Item>
-            <Dropdown.Item eventKey="3-3" icon={<Divider vertical />}>Loyalty</Dropdown.Item>
-            <Dropdown.Item eventKey="3-4" icon={<Divider vertical />}>Visit Depth</Dropdown.Item>
+            <Dropdown.Item eventKey="3-1" icon={<Divider vertical />}>
+              Geo
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3-2" icon={<Divider vertical />}>
+              Devices
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3-3" icon={<Divider vertical />}>
+              Loyalty
+            </Dropdown.Item>
+            <Dropdown.Item eventKey="3-4" icon={<Divider vertical />}>
+              Visit Depth
+            </Dropdown.Item>
           </Dropdown>
           <Dropdown
             eventKey="4"

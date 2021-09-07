@@ -1,13 +1,24 @@
-import Reaxt, { useState, useEffect } from "react";
+import React, { Suspense, useState } from "react";
 import { Container, Header, Content, Footer, Sidebar } from "rsuite";
+import { Redirect, Route, Switch } from "react-router-dom";
 import DefaultNavbar from "./DefaultNavbar";
 import DefaultSidebar from "./DefaultSidebar";
-import DefaultContent from "./DefaultContent";
 import DefaultFooter from "./DefaultFooter";
-export default function Home() {
+import ErrorPage from "./404Error";
+import routes from "../routes";
+import { Progress } from "rsuite";
+
+const { Line } = Progress;
+// ==================================================================
+export default function Home(props) {
   const [expand, setExpand] = useState(true);
   const handleExpand = () => {
     setExpand(!expand);
+  };
+  const loading = () => {
+    <div style={{ position: "absolute", top: 0, width: "100%" }}>
+      <Line percent={100} strokeColor="blue" />
+    </div>;
   };
   return (
     <Container>
@@ -20,9 +31,26 @@ export default function Home() {
         </Sidebar>
         <Container>
           <Content>
-            <DefaultContent>
-              <div style={{ height: 1000 }}></div>
-            </DefaultContent>
+            <Suspense fallback={loading()}>
+              <Switch>
+                {routes.map((route, idx) => {
+                  return route.component ? (
+                    <Route
+                      key={idx}
+                      path={route.path}
+                      exact={route.exact}
+                      name={route.name}
+                    >
+                      <route.component {...props} />
+                    </Route>
+                  ) : (
+                    <ErrorPage {...props} />
+                  );
+                })}
+                <Redirect from="/" to="/404-error" />
+              </Switch>
+            </Suspense>
+            <ErrorPage />
           </Content>
           <Footer>
             <DefaultFooter />

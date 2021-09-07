@@ -6,9 +6,10 @@ import {
   PageNameNav,
   Table,
   HeaderCell,
-} from "../components/UI Components";
+  Cell,
+  Column,
+} from "../../components/UI Components";
 import { Line, Bar } from "react-chartjs-2";
-const { Cell, Column } = Table;
 // ==========================================
 export default function DefaultContent(props) {
   const { children } = props;

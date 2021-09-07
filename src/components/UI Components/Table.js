@@ -1,7 +1,7 @@
 import React from "react";
 import { Table as RSTable } from "rsuite";
 
-const { HeaderCell } = RSTable;
+const { HeaderCell, Cell, Column , Pagination } = RSTable;
 
 export function CustomHeaderCell(props) {
   const { children, ...rest } = props;
@@ -26,3 +26,5 @@ export function Table(props) {
     </RSTable>
   );
 }
+
+export {Cell , Column , Pagination}
