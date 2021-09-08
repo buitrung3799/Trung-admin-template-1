@@ -6,20 +6,18 @@ import DefaultSidebar from "./DefaultSidebar";
 import DefaultFooter from "./DefaultFooter";
 import ErrorPage from "./404Error";
 import routes from "../routes";
-import { Progress } from "rsuite";
-
-const { Line } = Progress;
+import { Loading } from "../components/UI Components";
 // ==================================================================
 export default function Home(props) {
   const [expand, setExpand] = useState(true);
+  const [activeRoute , setActiveRoute] = useState("home");
+  const handleSelectRoute = activeKey => {
+    setActiveRoute(activeKey)
+  }
   const handleExpand = () => {
     setExpand(!expand);
   };
-  const loading = () => {
-    <div style={{ position: "absolute", top: 0, width: "100%" }}>
-      <Line percent={100} strokeColor="blue" />
-    </div>;
-  };
+
   return (
     <Container>
       <Header>
@@ -27,11 +25,11 @@ export default function Home(props) {
       </Header>
       <Container className="page-container">
         <Sidebar collapsible width={expand ? 250 : 56}>
-          <DefaultSidebar expand={expand} />
+          <DefaultSidebar activeRoute={activeRoute} handleSelectRoute={handleSelectRoute} expand={expand} />
         </Sidebar>
         <Container>
           <Content>
-            <Suspense fallback={loading()}>
+            <Suspense fallback={<Loading />}>
               <Switch>
                 {routes.map((route, idx) => {
                   return route.component ? (

@@ -10,6 +10,7 @@ import {
 import { Notification } from "./Notification";
 import { PageNameNav } from "./PageNameNav";
 import { Button } from "./Button";
+import { Loading } from "./Loading";
 export {
   StatisticalCard,
   Panel,
@@ -21,4 +22,5 @@ export {
   Cell,
   Column,
   Pagination,
+  Loading,
 };

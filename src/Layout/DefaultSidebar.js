@@ -2,9 +2,10 @@ import React from "react";
 import { Sidenav, Nav, Dropdown, Icon, Divider } from "rsuite";
 import { Link } from "react-router-dom";
 export default function DefaultSidebar(props) {
-  const { expand } = props;
+  const { expand, handleSelectRoute, activeRoute } = props;
   return (
     <Sidenav
+      activeKey={activeRoute}
       className={`main-sidebar ${expand ? "scrollable" : ""} `}
       style={{ width: expand ? 250 : 56 }}
       expanded={expand}
@@ -17,6 +18,7 @@ export default function DefaultSidebar(props) {
             componentClass={Link}
             to="/home"
             icon={<Icon icon="dashboard" />}
+            onSelect={handleSelectRoute}
           >
             TRANG CHỦ
           </Nav.Item>

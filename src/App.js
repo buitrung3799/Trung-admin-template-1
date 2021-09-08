@@ -9,9 +9,11 @@ const { Line } = Progress;
 // -----------------------------------------------------------------------
 function App() {
   const loading = () => {
-    <div style={{ position: "absolute" , top: 0 , width: "100%"}}>
-      <Line percent={100} strokeColor="blue" />
-    </div>;
+    return (
+      <div style={{ position: "absolute", top: 0, width: "100%" }}>
+        <Line percent={100} strokeColor="blue" />
+      </div>
+    );
   };
   return (
     <div className="app">
