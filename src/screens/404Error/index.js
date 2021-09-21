@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../components/UI Components";
+import { Button } from "../../components/UI Components";
 import { Icon } from "rsuite";
 export default function ErrorPage(props) {
   return (

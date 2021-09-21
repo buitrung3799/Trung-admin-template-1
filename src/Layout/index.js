@@ -4,16 +4,16 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import DefaultNavbar from "./DefaultNavbar";
 import DefaultSidebar from "./DefaultSidebar";
 import DefaultFooter from "./DefaultFooter";
-import ErrorPage from "./404Error";
+import ErrorPage from "../screens/404Error";
 import routes from "../routes";
 import { Loading } from "../components/UI Components";
 // ==================================================================
 export default function Home(props) {
   const [expand, setExpand] = useState(true);
-  const [activeRoute , setActiveRoute] = useState("home");
-  const handleSelectRoute = activeKey => {
-    setActiveRoute(activeKey)
-  }
+  const [activeRoute, setActiveRoute] = useState("home");
+  const handleSelectRoute = (activeKey) => {
+    setActiveRoute(activeKey);
+  };
   const handleExpand = () => {
     setExpand(!expand);
   };
@@ -25,7 +25,11 @@ export default function Home(props) {
       </Header>
       <Container className="page-container">
         <Sidebar collapsible width={expand ? 250 : 56}>
-          <DefaultSidebar activeRoute={activeRoute} handleSelectRoute={handleSelectRoute} expand={expand} />
+          <DefaultSidebar
+            activeRoute={activeRoute}
+            handleSelectRoute={handleSelectRoute}
+            expand={expand}
+          />
         </Sidebar>
         <Container>
           <Content>
@@ -48,7 +52,6 @@ export default function Home(props) {
                 <Redirect from="/" to="/404-error" />
               </Switch>
             </Suspense>
-            <ErrorPage />
           </Content>
           <Footer>
             <DefaultFooter />
