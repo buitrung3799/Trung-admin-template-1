@@ -1,13 +1,13 @@
 import React from "react";
 import { Table as RSTable } from "rsuite";
 
-const { HeaderCell, Cell, Column , Pagination } = RSTable;
+const { HeaderCell, Cell, Column, Pagination } = RSTable;
 
 export function CustomHeaderCell(props) {
   const { children, ...rest } = props;
   return (
     <HeaderCell {...rest}>
-      <b>{children.toUpperCase()}</b>
+      <b>{children ? children.toUpperCase() : ""}</b>
     </HeaderCell>
   );
 }
@@ -27,4 +27,9 @@ export function Table(props) {
   );
 }
 
-export {Cell , Column , Pagination}
+export function CustomColumn(props) {
+  const { children, ...rest } = props;
+  return <Column {...rest}>{children}</Column>;
+}
+
+export { Cell, Pagination };

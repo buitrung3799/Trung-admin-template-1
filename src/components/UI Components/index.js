@@ -4,7 +4,7 @@ import {
   CustomHeaderCell as HeaderCell,
   Table,
   Cell,
-  Column,
+  CustomColumn as Column,
   Pagination,
 } from "./Table";
 import { Notification } from "./Notification";

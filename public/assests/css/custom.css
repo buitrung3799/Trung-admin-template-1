@@ -242,7 +242,8 @@ code {
 .main-loading
   > .rs-progress
   > .rs-progress-line-outer
-  > .rs-progress-line-inner >.rs-progress-line-bg {
+  > .rs-progress-line-inner
+  > .rs-progress-line-bg {
   height: 3px !important;
   transition: 1s ease !important;
   transition-delay: 0.5s !important;
@@ -338,6 +339,10 @@ body::-webkit-scrollbar-button {
   transition: width 0.3s ease;
   box-shadow: 0.15rem 0 1.75rem 0 rgba(33, 40, 50, 0.15) !important;
 }
+.rs-nav-item.rs-nav-item-active {
+  border-right: 3px solid var(--blue);
+  background-color: var(--light-2);
+}
 .rs-sidenav .rs-nav-item .rs-nav-item-content,
 .rs-sidenav .rs-dropdown .rs-dropdown-toggle {
   font-size: 14px !important;
@@ -373,7 +378,7 @@ body::-webkit-scrollbar-button {
   background-position: center;
   background-color: transparent;
   background-repeat: no-repeat;
-  height: 450px;
+  height: 460px;
 }
 .error-description {
   display: flex;

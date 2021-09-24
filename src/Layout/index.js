@@ -10,7 +10,7 @@ import { Loading } from "../components/UI Components";
 // ==================================================================
 export default function Home(props) {
   const [expand, setExpand] = useState(true);
-  const [activeRoute, setActiveRoute] = useState("home");
+  const [activeRoute, setActiveRoute] = useState("");
   const handleSelectRoute = (activeKey) => {
     setActiveRoute(activeKey);
   };
@@ -24,7 +24,7 @@ export default function Home(props) {
         <DefaultNavbar handleExpand={handleExpand} />
       </Header>
       <Container className="page-container">
-        <Sidebar collapsible width={expand ? 250 : 56}>
+        <Sidebar collapsible width={expand ? 230 : 56}>
           <DefaultSidebar
             activeRoute={activeRoute}
             handleSelectRoute={handleSelectRoute}

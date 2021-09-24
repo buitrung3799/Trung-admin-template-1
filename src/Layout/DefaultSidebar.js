@@ -7,7 +7,7 @@ export default function DefaultSidebar(props) {
     <Sidenav
       activeKey={activeRoute}
       className={`main-sidebar ${expand ? "scrollable" : ""} `}
-      style={{ width: expand ? 250 : 56 }}
+      style={{ width: expand ? 230 : 56 }}
       expanded={expand}
       appearance="subtle"
     >
@@ -23,12 +23,13 @@ export default function DefaultSidebar(props) {
             TRANG CHỦ
           </Nav.Item>
           <Nav.Item
-            eventKey="2"
+            eventKey="user-group"
             componentClass={Link}
-            to="/"
+            to="/user-group"
             icon={<Icon icon="group" />}
+            onSelect={handleSelectRoute}
           >
-            User Group
+            QUẢN LÝ USER
           </Nav.Item>
           <Nav.Item
             eventKey="3"
